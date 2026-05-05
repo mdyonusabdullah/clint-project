@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alpha Contracting & Property Services Inc.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="uploads/new hero image.png" fetchpriority="high" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #111827;
+      --navy-dark: #0b1120;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --blue-light: #3b82f6;
+      --white: #ffffff;
+      --off-white: #f8f8f8;
+      --gray-light: #f3f4f6;
+      --gray-mid: #9ca3af;
+      --gray-text: #6b7280;
+      --gold: #f59e0b;
+      --text-dark: #111827;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', Arial, sans-serif; color: var(--text-dark); background: #fff; }
+
+    /* ── TOP UTILITY BAR ── */
+    .top-bar {
+      background: var(--navy-dark);
+      color: #d1d5db;
+      font-size: 12px;
+      font-family: 'Open Sans', sans-serif;
+      padding: 7px 0;
+    }
+    .top-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .top-bar-left { display: flex; align-items: center; gap: 20px; }
+    .top-bar-right { display: flex; align-items: center; gap: 16px; }
+    .top-bar a { color: #d1d5db; text-decoration: none; }
+    .top-bar a:hover { color: #fff; }
+    .top-bar-item { display: flex; align-items: center; gap: 5px; }
+    .top-bar-item svg { width: 12px; height: 12px; flex-shrink: 0; }
+    .social-icons { display: flex; gap: 10px; align-items: center; }
+    .social-icons a {
+      color: #d1d5db;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid #374151;
+      border-radius: 2px;
+      font-size: 11px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-icons a:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    /* ── MAIN NAV ── */
+    .main-nav {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-emblem {
+      width: 58px; height: 58px;
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #fff;
+    }
+    .logo-emblem img {
+      width: 48px; height: 48px;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-emblem-inner {
+      display: flex; flex-direction: column; align-items: center; line-height: 1;
+    }
+    .logo-alpha {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--navy);
+      letter-spacing: 0.5px;
+    }
+    .logo-wreath {
+      position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+      font-size: 9px; color: var(--navy); letter-spacing: 1px;
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-text-main {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--navy);
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+    }
+    .logo-text-sub {
+      font-size: 9.5px;
+      color: var(--gray-text);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--navy);
+      text-decoration: none;
+      padding: 8px 12px;
+      letter-spacing: 0.3px;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 12px; right: 12px;
+      height: 2px;
+      background: var(--blue);
+    }
+    .nav-links .has-dropdown { display: flex; align-items: center; gap: 3px; }
+    .nav-links .has-dropdown svg { width: 12px; height: 12px; }
+    .nav-cta {
+      background: var(--blue);
+      color: #fff !important;
+      padding: 11px 22px !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 740px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: #080d1a;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #080d1a;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(8,13,26,0.97) 0%,
+        rgba(8,13,26,0.95) 28%,
+        rgba(8,13,26,0.72) 50%,
+        rgba(8,13,26,0.20) 72%,
+        rgba(8,13,26,0) 100%
+      );
+    }
+    .hero-left {
+      padding: 100px 60px 100px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      background: transparent;
+      margin-left: 48px;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow-line {
+      width: 28px; height: 2px; background: var(--blue);
+    }
+    .hero-eyebrow span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .hero-h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      line-height: 1.03;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+    .hero-h1-blue {
+      color: #60a5fa;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.75;
+      max-width: 440px;
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
+    .hero-buttons { display: flex; align-items: center; gap: 14px; }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 26px;
+      border: 2px solid var(--blue);
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 26px;
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+    .hero-right { display: none; }
+
+    /* Hero stats row */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat {
+      padding: 0 32px 0 0;
+      min-width: 100px;
+    }
+    .hero-stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .hero-stat-num span { color: var(--blue); }
+    .hero-stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      margin-right: 32px;
+      flex-shrink: 0;
+    }
+    /* Striped placeholder for hero image */
+    .img-placeholder {
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        135deg,
+        #e5e7eb 0px,
+        #e5e7eb 1px,
+        #f3f4f6 1px,
+        #f3f4f6 12px
+      );
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .img-placeholder-label {
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+      padding: 12px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid #d1d5db;
+      max-width: 200px;
+    }
+
+    /* ── WHY CHOOSE ALPHA (DARK) ── */
+    .trust-section {
+      background: var(--navy);
+      padding: 64px 24px;
+      color: #fff;
+    }
+    .trust-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .section-label-line { flex: 1; max-width: 60px; height: 1px; background: #4b5563; }
+    .section-label span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+    .trust-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 44px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .trust-card {
+      padding: 28px 32px;
+      text-align: center;
+      border-right: 1px solid #1f2937;
+    }
+    .trust-card:last-child { border-right: none; }
+    .trust-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trust-icon svg { width: 40px; height: 40px; }
+    .trust-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .trust-card-desc {
+      font-size: 12.5px;
+      color: #9ca3af;
+      line-height: 1.65;
+    }
+
+    /* ── WHAT WE DO (SERVICES) ── */
+    .services-section {
+      background: #f9fafb;
+      padding: 70px 24px;
+    }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+    .services-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .services-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 34px;
+      text-transform: uppercase;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+      line-height: 1.05;
+    }
+    .services-desc {
+      font-size: 13.5px;
+      color: #6b7280;
+      line-height: 1.7;
+      padding-top: 8px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .service-card-img {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-card-img img {
+      transform: scale(1.05);
+    }
+    .service-icon-badge {
+      position: absolute;
+      bottom: -1px; left: 14px;
+      width: 44px; height: 44px;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+    }
+    .service-icon-badge svg { width: 22px; height: 22px; color: #fff; }
+    .service-card-body { padding: 20px 18px 18px; }
+    .service-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .service-card-desc {
+      font-size: 12.5px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .learn-more {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .learn-more:hover { gap: 10px; }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .cta-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      display: block;
+    }
+    .cta-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(8,13,30,0.93) 0%, rgba(8,13,30,0.78) 50%, rgba(8,13,30,0.55) 100%);
+    }
+    .cta-left {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      padding: 80px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .cta-right { display: none; }
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      text-transform: uppercase;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.05;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.3);
+    }
+    .cta-title span { color: #60a5fa; }
+    .cta-desc {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    .cta-buttons { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-blue {
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      border: 2px solid var(--blue);
+      cursor: pointer;
+      display: inline-flex; align-items: center; gap: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(37,99,235,0.4);
+    }
+    .btn-blue:hover { background: var(--blue-dark); border-color: var(--blue-dark); transform: translateY(-1px); }
+    .cta-phone {
+      display: flex; align-items: center; gap: 10px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .cta-phone:hover { color: #60a5fa; border-color: #60a5fa; }
+    .cta-phone svg { width: 18px; height: 18px; }
+
+    /* ── AFFILIATES ── */
+    .affiliates-section {
+      background: #f9fafb;
+      padding: 52px 24px;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .affiliates-inner { max-width: 1200px; margin: 0 auto; }
+    .affiliates-header {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      margin-bottom: 36px;
+    }
+    .affiliates-line { flex: 1; max-width: 80px; height: 1px; background: #d1d5db; }
+    .affiliates-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+    .affiliates-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .affiliate-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      min-width: 140px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .affiliate-item:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .affiliate-item img {
+      max-height: 72px;
+      max-width: 160px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.3s;
+    }
+    .affiliate-item:hover img { filter: grayscale(0%); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 36px 24px;
+    }
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 8px 20px;
+      border-right: 1px solid #e5e7eb;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 36px;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+    .stat-stars { display: flex; justify-content: center; gap: 2px; margin-bottom: 6px; }
+    .stat-stars svg { width: 22px; height: 22px; color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { background: #09101f; color: #9ca3af; }
+
+    /* Footer top bar */
+    .footer-top { background: var(--blue); padding: 18px 24px; }
+    .footer-top-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-top-contact { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .footer-top-item { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.92); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12.5px; transition: color 0.2s; }
+    .footer-top-item:hover { color: #fff; }
+    .footer-top-item svg { width: 14px; height: 14px; opacity: 0.8; flex-shrink: 0; }
+    .footer-top-cta { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--blue); background: #fff; padding: 10px 22px; text-decoration: none; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+    .footer-top-cta:hover { background: #e0f0ff; }
+
+    /* Footer body */
+    .footer-body { max-width: 1200px; margin: 0 auto; padding: 64px 24px 52px; display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 48px; }
+
+    /* Brand column */
+    .footer-brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 18px; }
+    .footer-brand-emblem { width: 54px; height: 54px; border: 1.5px solid #1e2d40; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; background: #111827; }
+    .footer-brand-emblem img { width: 42px; height: 42px; object-fit: contain; filter: brightness(1.8); }
+    .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px; color: #fff; line-height: 1.2; }
+    .footer-brand-sub { font-size: 9px; color: #8b95a8; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 3px; }
+    .footer-brand-desc { font-size: 13px; line-height: 1.75; color: #b8c0cc; font-weight: 500; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 8px; margin-bottom: 22px; }
+    .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: #111827; border: 1px solid #1e2d40; color: #9ca3af; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; transition: all 0.2s; }
+    .footer-social a:hover { background: var(--blue); border-color: var(--blue); color: #fff; transform: translateY(-2px); }
+    .footer-badge { display: inline-flex; align-items: center; gap: 7px; background: #0d1424; border: 1px solid #1e2d40; border-left: 3px solid var(--blue); padding: 9px 14px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #b8c0cc; }
+    .footer-badge svg { width: 13px; height: 13px; color: var(--blue); flex-shrink: 0; }
+
+    /* Column titles */
+    .footer-col-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #1a2535; position: relative; }
+    .footer-col-title::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 28px; height: 2px; background: var(--blue); }
+
+    /* Links */
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; color: #b8c0cc; font-weight: 500; text-decoration: none; transition: color 0.2s, padding-left 0.2s; display: flex; align-items: center; gap: 8px; }
+    .footer-links a::before { content: '›'; color: var(--blue); font-size: 16px; line-height: 1; flex-shrink: 0; }
+    .footer-links a:hover { color: #fff; padding-left: 4px; }
+
+    /* Hours */
+    .footer-hours { display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+    .footer-hours-item { display: flex; justify-content: space-between; font-size: 12.5px; color: #b8c0cc; font-weight: 500; padding-bottom: 9px; border-bottom: 1px solid #1a2535; }
+    .footer-hours-item:last-child { border-bottom: none; }
+    .footer-hours-day { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #e2e8f0; font-size: 11.5px; }
+
+    /* Contact info in footer */
+    .footer-contact-info { display: flex; flex-direction: column; gap: 11px; }
+    .footer-contact-info a { display: flex; align-items: center; gap: 9px; font-size: 13px; color: #b8c0cc; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .footer-contact-info a:hover { color: #fff; }
+    .footer-contact-info svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; }
+    .footer-contact-addr { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #b8c0cc; font-weight: 500; line-height: 1.6; }
+    .footer-contact-addr svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+
+    /* Bottom bar */
+    .footer-divider { border: none; border-top: 1px solid #111827; margin: 0; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #8b95a8; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #8b95a8; text-decoration: none; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #e2e8f0; }
+
+    /* Arrow SVG inline */
+    .arrow-right {
+      display: inline-block;
+      width: 14px; height: 14px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP UTILITY BAR -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:6472270221" class="top-bar-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+          (647) 227-0221
+        </a>
+        <a href="mailto:info@alphacontracting.ca" class="top-bar-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+          info@alphacontracting.ca
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <a href="#" class="top-bar-item">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+          Thornhill, ON
+        </a>
+        <div class="social-icons">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-emblem">
+          <img src="uploads/logo1.webp" alt="Alpha Contracting Logo" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-text-main">ALPHA<br>CONTRACTING</span>
+          <span class="logo-text-sub">&amp; Property Services Inc.</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html" class="active">HOME</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html" class="nav-cta">GET A QUOTE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="uploads/new hero image.png" alt="Alpha Contracting fleet trucks" loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Quality. Integrity. Excellence.</span>
+      </div>
+      <h1 class="hero-h1">
+        BUILDING BETTER<br>
+        SPACES. ENHANCING<br>
+        <span class="hero-h1-blue">EVERY PROPERTY.</span>
+      </h1>
+      <p class="hero-desc">
+        Alpha Contracting &amp; Property Services Inc. provides expert construction, renovation, and property services with a commitment to quality craftsmanship and customer satisfaction.
+      </p>
+      <div class="hero-buttons">
+        <a href="services.html" class="btn-primary">
+          OUR SERVICES
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <a href="contact.html" class="btn-outline">GET A QUOTE</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">10<span>+</span></div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">500<span>+</span></div>
+          <div class="hero-stat-label">Projects Completed</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">5<span>★</span></div>
+          <div class="hero-stat-label">Client Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE ALPHA -->
+  <section class="trust-section">
+    <div class="trust-inner">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span>Why Choose Alpha</span>
+        <div class="section-label-line"></div>
+      </div>
+      <h2 class="trust-title">EXPERIENCE YOU CAN TRUST</h2>
+      <div class="trust-grid">
+        <!-- Quality Craftsmanship -->
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="#2563eb" stroke-width="1.8">
+              <path d="M20 5L22.5 12.5H30.5L24 17.2L26.5 24.7L20 20L13.5 24.7L16 17.2L9.5 12.5H17.5Z"/>
+              <circle cx="20" cy="20" r="14" stroke="#2563eb" stroke-width="1.2" fill="none" stroke-dasharray="2 2"/>
+            </svg>
+          </div>
+          <div class="trust-card-title">QUALITY CRAFTSMANSHIP</div>
+          <p class="trust-card-desc">We take pride in our attention to detail and superior workmanship on every project.</p>
+        </div>
+        <!-- Reliable & Professional -->
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="#2563eb" stroke-width="1.8">
+              <circle cx="14" cy="13" r="4"/>
+              <circle cx="26" cy="13" r="4"/>
+              <path d="M6 32c0-6.627 3.582-12 8-12h12c4.418 0 8 5.373 8 12"/>
+            </svg>
+          </div>
+          <div class="trust-card-title">RELIABLE &amp; PROFESSIONAL</div>
+          <p class="trust-card-desc">Our team is committed to clear communication, timelines, and dependable service.</p>
+        </div>
+        <!-- Complete Solutions -->
+        <div class="trust-card">
+          <div class="trust-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="#2563eb" stroke-width="1.8">
+              <path d="M20 6L34 14V26L20 34L6 26V14L20 6Z"/>
+              <path d="M20 6V34M6 14L34 14M6 26L34 26"/>
+            </svg>
+          </div>
+          <div class="trust-card-title">COMPLETE SOLUTIONS</div>
+          <p class="trust-card-desc">From renovations to property maintenance, we offer end-to-end solutions.</p>
+        </div>
+        <!-- Customer Satisfaction -->
+        <div class="trust-card" style="border-right:none;">
+          <div class="trust-icon">
+            <svg viewBox="0 0 40 40" fill="none" stroke="#2563eb" stroke-width="1.8">
+              <circle cx="20" cy="20" r="14"/>
+              <path d="M14 22s2 4 6 4 6-4 6-4"/>
+              <circle cx="15" cy="17" r="1.5" fill="#2563eb"/>
+              <circle cx="25" cy="17" r="1.5" fill="#2563eb"/>
+              <path d="M10 10 L30 10 L30 8 L20 4 L10 8Z" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="trust-card-title">CUSTOMER SATISFACTION</div>
+          <p class="trust-card-desc">We're not happy until you're happy. Your vision is our priority.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO (SERVICES) -->
+  <section class="services-section">
+    <div class="services-inner">
+      <div class="services-header">
+        <div>
+          <div class="services-eyebrow">Our Services</div>
+          <h2 class="services-title">WHAT WE DO</h2>
+        </div>
+        <p class="services-desc">We offer a wide range of construction and property services tailored to meet your needs, on time and on budget.</p>
+      </div>
+      <div class="services-grid">
+        <!-- Renovations -->
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="uploads/Building Services.webp" alt="Building Services" />
+            <div class="service-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M2 12h20"/><path d="M7 12v10"/><path d="M12 12v10"/><path d="M17 12v10"/></svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <div class="service-card-title">BUILDING SERVICES</div>
+            <p class="service-card-desc">Comprehensive building services for residential and commercial properties.</p>
+            <a href="#" class="learn-more">
+              LEARN MORE
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Restoration and Mold Remediation -->
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="uploads/mold_remediation_service.webp" alt="Restoration and Mold Remediation" />
+            <div class="service-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <div class="service-card-title">RESTORATION &amp; MOLD REMEDIATION</div>
+            <p class="service-card-desc">Professional mold removal and property restoration to make your space safe and clean again.</p>
+            <a href="#" class="learn-more">
+              LEARN MORE
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Basement Developments -->
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="uploads/basement_service.webp" alt="Basement Developments" />
+            <div class="service-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <div class="service-card-title">BASEMENT<br>DEVELOPMENTS</div>
+            <p class="service-card-desc">Add value and living space with a beautifully finished basement.</p>
+            <a href="#" class="learn-more">
+              LEARN MORE
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+        <!-- Property Services -->
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="uploads/property_service.webp" alt="Property Services" />
+            <div class="service-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0H5m-2 0h2M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+          </div>
+          <div class="service-card-body">
+            <div class="service-card-title">PROPERTY SERVICES</div>
+            <p class="service-card-desc">Ongoing maintenance and property care you can rely on.</p>
+            <a href="#" class="learn-more">
+              LEARN MORE
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR AFFILIATES -->
+  <section class="affiliates-section">
+    <div class="affiliates-inner">
+      <div class="affiliates-header">
+        <div class="affiliates-line"></div>
+        <span class="affiliates-title">OUR AFFILIATES</span>
+        <div class="affiliates-line"></div>
+      </div>
+      <div class="affiliates-grid">
+        <div class="affiliate-item">
+          <img src="uploads/imageye___-_imgi_16_rs=w_300,h_300,cg_true.webp" alt="IICRC Certified Firm" />
+        </div>
+        <div class="affiliate-item">
+          <img src="uploads/imageye___-_imgi_17_rs=w_511,h_200,cg_true,m.webp" alt="ACMO Associate Member" />
+        </div>
+        <div class="affiliate-item">
+          <img src="uploads/imageye___-_imgi_19_cr=w_239,h_107.webp" alt="FirstService" />
+        </div>
+        <div class="affiliate-item">
+          <img src="uploads/imageye___-_imgi_20_cr=w_363,h_139.webp" alt="MRCM An Associa Company" />
+        </div>
+        <div class="affiliate-item">
+          <img src="uploads/imageye___-_imgi_22_rs=w_240,h_240,cg_true.webp" alt="Canadian Property Management" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BEFORE & AFTER GALLERY -->
+  <section class="gallery-section">
+    <div class="gallery-inner">
+      <div class="gallery-header">
+        <div class="services-eyebrow">Our Work</div>
+        <h2 class="gallery-title">BEFORE &amp; AFTER</h2>
+        <p class="gallery-desc">See the transformations we deliver — from damaged and outdated spaces to stunning, professionally finished results.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item gallery-item-wide" onclick="openLightbox(0)">
+          <img src="uploads/gallery_exterior_awning.webp" alt="Interlocking" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Interlocking</span>
+            <span class="gallery-zoom">+</span>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-wide" onclick="openLightbox(1)">
+          <img src="uploads/gallery_kitchen.webp" alt="Kitchen Renovation Before &amp; After" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Kitchen Renovation</span>
+            <span class="gallery-zoom">+</span>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(2)">
+          <img src="uploads/gallery_hallway_mold.webp" alt="Hallway Mold Remediation Before &amp; After" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Mold Remediation</span>
+            <span class="gallery-zoom">+</span>
+          </div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(3)">
+          <img src="uploads/gallery_floor_mold.webp" alt="Floor Mold &amp; Water Damage Before &amp; After" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Water &amp; Mold Damage</span>
+            <span class="gallery-zoom">+</span>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-wide" onclick="openLightbox(4)">
+          <img src="uploads/gallery_bathroom.webp" alt="Bathroom Renovation Before &amp; After" />
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Bathroom Renovation</span>
+            <span class="gallery-zoom">+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
+    <button class="lightbox-prev" onclick="event.stopPropagation();changeSlide(-1)">&#8249;</button>
+    <button class="lightbox-next" onclick="event.stopPropagation();changeSlide(1)">&#8250;</button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="" />
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- READY TO GET STARTED CTA -->
+  <section class="cta-section">
+    <div class="cta-bg">
+      <img src="uploads/index_cta_bg.webp" alt="Luxurious modern home interior" />
+    </div>
+    <div class="cta-left">
+      <h2 class="cta-title">READY TO GET<br><span>STARTED?</span></h2>
+      <p class="cta-desc">Let's bring your vision to life. Contact us today for a free consultation and quote.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-blue">
+          GET IN TOUCH
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        </a>
+        <a href="tel:6472270221" class="cta-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+          (647) 227-0221
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Satisfaction Guaranteed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <div class="stat-label">5 Star Reviews</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- Top contact bar -->
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-top-contact">
+          <a href="tel:6472270221" class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            (647) 227-0221
+          </a>
+          <a href="mailto:info@alphacontracting.ca" class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            info@alphacontracting.ca
+          </a>
+          <span class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            5000 Yonge St. Suite# 1901, Toronto, ON M2N 7E9
+          </span>
+        </div>
+        <a href="contact.html" class="footer-top-cta">Get A Free Quote</a>
+      </div>
+    </div>
+
+    <!-- Main body -->
+    <div class="footer-body">
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="footer-brand-logo">
+          <div class="footer-brand-emblem">
+            <img src="uploads/logo1.webp" alt="Alpha Contracting Logo" />
+          </div>
+          <div>
+            <div class="footer-brand-name">ALPHA<br>CONTRACTING</div>
+            <div class="footer-brand-sub">&amp; Property Services Inc.</div>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Alpha Contracting &amp; Property Services Inc. delivers expert construction, renovation, and property management services across Toronto, Ontario and the Greater Toronto Area.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+        <div class="footer-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Licensed &amp; Insured — Toronto, ON
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="footer-col-title">Our Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Renovations</a></li>
+          <li><a href="services.html">Bathrooms</a></li>
+          <li><a href="services.html">Basement Developments</a></li>
+          <li><a href="services.html">Property Services</a></li>
+          <li><a href="services.html">Mold Remediation</a></li>
+        </ul>
+      </div>
+
+      <!-- Business Hours -->
+      <div>
+        <div class="footer-col-title">Business Hours</div>
+        <div class="footer-hours">
+          <div class="footer-hours-item"><span class="footer-hours-day">Mon – Fri</span><span>8:00am – 6:00pm</span></div>
+          <div class="footer-hours-item"><span class="footer-hours-day">Saturday</span><span>9:00am – 3:00pm</span></div>
+          <div class="footer-hours-item"><span class="footer-hours-day">Sunday</span><span>Closed</span></div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-info">
+          <a href="tel:6472270221">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            (647) 227-0221
+          </a>
+          <a href="mailto:info@alphacontracting.ca">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            info@alphacontracting.ca
+          </a>
+          <div class="footer-contact-addr">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            <span>5000 Yonge St. Suite# 1901, Toronto, ON M2N 7E9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Alpha Contracting &amp; Property Services Inc. All Rights Reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* ── GALLERY SECTION ── */
+    .gallery-section {
+      background: #fff;
+      padding: 70px 24px;
+    }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; }
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .gallery-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 34px;
+      text-transform: uppercase;
+      color: var(--navy);
+      letter-spacing: -0.3px;
+      margin-bottom: 12px;
+    }
+    .gallery-desc {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 2px;
+      background: #111;
+      height: 320px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item-wide {
+      grid-column: span 2;
+    }
+    .gallery-item:hover img { transform: scale(1.03); }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17,24,39,0.75) 0%, rgba(17,24,39,0) 60%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--blue);
+      padding: 4px 10px;
+    }
+    .gallery-zoom {
+      width: 32px; height: 32px;
+      background: #fff;
+      color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      font-weight: 300;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 2px;
+      display: block;
+    }
+    .lightbox-caption {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: none; border: none;
+      color: #fff; font-size: 22px;
+      cursor: pointer; z-index: 10;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.1);
+      border: none; color: #fff;
+      font-size: 42px; line-height: 1;
+      cursor: pointer; z-index: 10;
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .lightbox-prev:hover, .lightbox-next:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-prev { left: 16px; }
+    .lightbox-next { right: 16px; }
+  </style>
+
+  <script>
+    const galleryImages = [
+      { src: 'uploads/gallery_exterior_awning.webp', caption: 'Interlocking' },
+      { src: 'uploads/gallery_kitchen.webp', caption: 'Kitchen Renovation' },
+      { src: 'uploads/gallery_hallway_mold.webp', caption: 'Mold Remediation' },
+      { src: 'uploads/gallery_floor_mold.webp', caption: 'Water & Mold Damage Restoration' },
+      { src: 'uploads/gallery_bathroom.webp', caption: 'Bathroom Renovation' }
+    ];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById('lightbox-img').src = galleryImages[index].src;
+      document.getElementById('lightbox-caption').textContent = galleryImages[index].caption;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeSlide(dir) {
+      currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+      document.getElementById('lightbox-img').src = galleryImages[currentIndex].src;
+      document.getElementById('lightbox-caption').textContent = galleryImages[currentIndex].caption;
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (document.getElementById('lightbox').classList.contains('active')) {
+        if (e.key === 'ArrowLeft') changeSlide(-1);
+        if (e.key === 'ArrowRight') changeSlide(1);
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+  </script>
+
+  <style>
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; flex-shrink: 0; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      .top-bar-right { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 8px 24px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); z-index: 150; border-top: 1px solid #e5e7eb; gap: 0; max-height: calc(100vh - 72px); overflow-y: auto; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; width: 100%; }
+      .nav-links a.active::after { display: none; }
+      .nav-cta { margin-top: 10px; text-align: center; justify-content: center; border-bottom: none !important; padding: 13px !important; }
+      .footer-top-contact { gap: 16px !important; }
+      .footer-body { grid-template-columns: 1fr 1fr !important; gap: 32px !important; padding: 48px 24px 40px !important; }
+      .footer-bottom { flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+      .footer-bottom-links { justify-content: center !important; }
+      .hero { min-height: auto; }
+      .hero-left { padding: 60px 24px !important; max-width: 100% !important; margin-left: 0 !important; border-left: none !important; }
+      .hero-h1 { font-size: 36px !important; }
+      .hero-buttons { flex-wrap: wrap !important; }
+      .hero-stats { margin-top: 32px !important; padding-top: 28px !important; }
+      .hero-stat { padding: 0 20px 0 0 !important; min-width: auto !important; }
+      .hero-stat-num { font-size: 24px !important; }
+      .hero-stat-divider { margin-right: 20px !important; }
+      .trust-grid { grid-template-columns: 1fr 1fr !important; }
+      .trust-card { border-right: none !important; border-bottom: 1px solid #1f2937 !important; }
+      .services-header { grid-template-columns: 1fr !important; }
+      .services-grid { grid-template-columns: 1fr 1fr !important; }
+      .stats-inner { grid-template-columns: 1fr 1fr !important; }
+      .stat-item { border-right: none !important; border-bottom: 1px solid #e5e7eb !important; }
+      .cta-left { padding: 64px 24px !important; }
+      .cta-title { font-size: 34px !important; }
+      .cta-buttons { flex-wrap: wrap !important; }
+      .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 560px) {
+      .hero-h1 { font-size: 28px !important; }
+      .hero-left { padding: 44px 20px !important; }
+      .trust-grid { grid-template-columns: 1fr !important; }
+      .services-grid { grid-template-columns: 1fr !important; }
+      .gallery-grid { grid-template-columns: 1fr !important; }
+      .gallery-item-wide { grid-column: span 1 !important; }
+      .footer-top-contact { display: none !important; }
+      .footer-body { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .cta-title { font-size: 26px !important; }
+      .cta-left { padding: 44px 20px !important; }
+    }
+  </style>
+  <script>
+    (function() {
+      var btn = document.getElementById('navToggle');
+      var menu = document.querySelector('.nav-links');
+      if (btn && menu) {
+        btn.addEventListener('click', function() { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        document.addEventListener('click', function(e) {
+          if (!btn.contains(e.target) && !menu.contains(e.target)) { btn.classList.remove('open'); menu.classList.remove('open'); }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

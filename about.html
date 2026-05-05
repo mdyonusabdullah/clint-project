@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Alpha Contracting & Property Services Inc.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy: #111827; --navy-dark: #0b1120; --blue: #2563eb; --blue-dark: #1d4ed8; --gray-text: #6b7280; --gold: #f59e0b; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', Arial, sans-serif; color: var(--navy); background: #fff; }
+
+    /* TOP BAR */
+    .top-bar { background: var(--navy-dark); color: #d1d5db; font-size: 12px; padding: 7px 0; }
+    .top-bar-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .top-bar-left, .top-bar-right { display: flex; align-items: center; gap: 20px; }
+    .top-bar a { color: #d1d5db; text-decoration: none; } .top-bar a:hover { color: #fff; }
+    .top-bar-item { display: flex; align-items: center; gap: 5px; }
+    .top-bar-item svg { width: 12px; height: 12px; }
+    .social-icons { display: flex; gap: 10px; }
+    .social-icons a { color: #d1d5db; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border: 1px solid #374151; border-radius: 2px; font-size: 11px; text-decoration: none; transition: background 0.2s; }
+    .social-icons a:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+    /* NAV */
+    .main-nav { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-emblem { width: 58px; height: 58px; border: 2px solid var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; background: #fff; }
+    .logo-emblem img { width: 48px; height: 48px; object-fit: contain; }
+    .logo-text-main { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--navy); line-height: 1.1; }
+    .logo-text-sub { font-size: 9.5px; color: var(--gray-text); letter-spacing: 0.8px; text-transform: uppercase; margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links a { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; color: var(--navy); text-decoration: none; padding: 8px 12px; position: relative; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 12px; right: 12px; height: 2px; background: var(--blue); }
+    .nav-cta { background: var(--blue); color: #fff !important; padding: 11px 22px !important; font-weight: 700 !important; border-radius: 2px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--blue-dark) !important; }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--navy); padding: 60px 24px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80') center/cover; opacity: 0.15; }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #9ca3af; margin-bottom: 14px; font-family: 'Montserrat', sans-serif; }
+    .breadcrumb a { color: #9ca3af; text-decoration: none; } .breadcrumb a:hover { color: #fff; }
+    .breadcrumb span { color: #60a5fa; }
+    .page-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 42px; color: #fff; text-transform: uppercase; }
+    .page-subtitle { font-size: 15px; color: #9ca3af; margin-top: 10px; max-width: 500px; line-height: 1.65; }
+
+    /* WHO WE ARE */
+    .about-intro { max-width: 1200px; margin: 0 auto; padding: 70px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-img { border-radius: 2px; overflow: hidden; height: 420px; position: relative; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-badge { position: absolute; bottom: 24px; left: 24px; background: var(--blue); color: #fff; padding: 16px 20px; }
+    .about-img-badge .big { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 28px; line-height: 1; }
+    .about-img-badge .small { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.9; }
+    .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; color: var(--blue); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .section-title { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 34px; text-transform: uppercase; color: var(--navy); line-height: 1.05; margin-bottom: 18px; }
+    .about-text { font-size: 14px; color: var(--gray-text); line-height: 1.8; margin-bottom: 14px; }
+    .about-features { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0 28px; }
+    .about-features li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--navy); }
+    .about-features li::before { content: '✓'; color: var(--blue); font-weight: 900; font-size: 14px; }
+    .btn-primary { background: var(--navy); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 13px 24px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: #1f2937; }
+
+    /* VALUES SECTION */
+    .values-section { background: #f9fafb; padding: 70px 24px; }
+    .values-inner { max-width: 1200px; margin: 0 auto; }
+    .values-header { text-align: center; margin-bottom: 48px; }
+    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .value-card { background: #fff; padding: 32px 24px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
+    .value-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .value-icon { width: 56px; height: 56px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .value-icon svg { width: 26px; height: 26px; color: #fff; }
+    .value-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .value-desc { font-size: 13px; color: var(--gray-text); line-height: 1.65; }
+
+    /* TEAM */
+    .team-section { max-width: 1200px; margin: 0 auto; padding: 70px 24px; }
+    .team-header { text-align: center; margin-bottom: 48px; }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .team-card { text-align: center; }
+    .team-photo { width: 100%; height: 280px; object-fit: cover; object-position: top; display: block; margin-bottom: 18px; filter: grayscale(20%); transition: filter 0.3s; }
+    .team-card:hover .team-photo { filter: grayscale(0%); }
+    .team-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px; text-transform: uppercase; margin-bottom: 4px; }
+    .team-role { font-size: 12px; color: var(--blue); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* STATS */
+    .stats-bar { background: var(--navy); padding: 48px 24px; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .stat-item { text-align: center; padding: 8px 20px; border-right: 1px solid #1f2937; }
+    .stat-item:last-child { border-right: none; }
+    .stat-number { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 40px; color: #60a5fa; line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9ca3af; }
+
+    /* CTA STRIP */
+    .cta-strip { background: linear-gradient(rgba(37, 99, 235, 0.85), rgba(29, 78, 216, 0.95)), url('uploads/cta_background.webp') center/cover; padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 28px; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
+    .cta-strip p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 24px; }
+    .btn-white { background: #fff; color: var(--blue); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; padding: 13px 28px; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn-white:hover { background: #f0f9ff; }
+
+    /* ── FOOTER ── */
+    footer { background: #09101f; color: #9ca3af; }
+    .footer-top { background: #2563eb; padding: 18px 24px; }
+    .footer-top-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-top-contact { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .footer-top-item { display: flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.92); text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12.5px; transition: color 0.2s; }
+    .footer-top-item:hover { color: #fff; }
+    .footer-top-item svg { width: 14px; height: 14px; opacity: 0.8; flex-shrink: 0; }
+    .footer-top-cta { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #2563eb; background: #fff; padding: 10px 22px; text-decoration: none; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+    .footer-top-cta:hover { background: #e0f0ff; }
+    .footer-body { max-width: 1200px; margin: 0 auto; padding: 64px 24px 52px; display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-bottom: 18px; }
+    .footer-brand-emblem { width: 54px; height: 54px; border: 1.5px solid #1e2d40; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; background: #111827; }
+    .footer-brand-emblem img { width: 42px; height: 42px; object-fit: contain; filter: brightness(1.8); }
+    .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px; color: #fff; line-height: 1.2; }
+    .footer-brand-sub { font-size: 9px; color: #8b95a8; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 3px; }
+    .footer-brand-desc { font-size: 13px; line-height: 1.75; color: #b8c0cc; font-weight: 500; margin-bottom: 22px; }
+    .footer-social { display: flex; gap: 8px; margin-bottom: 22px; }
+    .footer-social a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: #111827; border: 1px solid #1e2d40; color: #9ca3af; text-decoration: none; font-size: 12px; font-weight: 700; border-radius: 4px; transition: all 0.2s; }
+    .footer-social a:hover { background: #2563eb; border-color: #2563eb; color: #fff; transform: translateY(-2px); }
+    .footer-badge { display: inline-flex; align-items: center; gap: 7px; background: #0d1424; border: 1px solid #1e2d40; border-left: 3px solid #2563eb; padding: 9px 14px; font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #b8c0cc; }
+    .footer-badge svg { width: 13px; height: 13px; color: #2563eb; flex-shrink: 0; }
+    .footer-col-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #fff; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #1a2535; position: relative; }
+    .footer-col-title::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 28px; height: 2px; background: #2563eb; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; color: #b8c0cc; font-weight: 500; text-decoration: none; transition: color 0.2s, padding-left 0.2s; display: flex; align-items: center; gap: 8px; }
+    .footer-links a::before { content: '›'; color: #2563eb; font-size: 16px; line-height: 1; flex-shrink: 0; }
+    .footer-links a:hover { color: #fff; padding-left: 4px; }
+    .footer-hours { display: flex; flex-direction: column; gap: 9px; margin-bottom: 28px; }
+    .footer-hours-item { display: flex; justify-content: space-between; font-size: 12.5px; color: #b8c0cc; font-weight: 500; padding-bottom: 9px; border-bottom: 1px solid #1a2535; }
+    .footer-hours-item:last-child { border-bottom: none; }
+    .footer-hours-day { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #e2e8f0; font-size: 11.5px; }
+    .footer-contact-info { display: flex; flex-direction: column; gap: 11px; }
+    .footer-contact-info a { display: flex; align-items: center; gap: 9px; font-size: 13px; color: #b8c0cc; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .footer-contact-info a:hover { color: #fff; }
+    .footer-contact-info svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; }
+    .footer-contact-addr { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: #b8c0cc; font-weight: 500; line-height: 1.6; }
+    .footer-contact-addr svg { width: 14px; height: 14px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+    .footer-divider { border: none; border-top: 1px solid #111827; margin: 0; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #8b95a8; flex-wrap: wrap; gap: 8px; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: #8b95a8; text-decoration: none; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #e2e8f0; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <a href="tel:6472270221" class="top-bar-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>(647) 227-0221</a>
+        <a href="mailto:info@alphacontracting.ca" class="top-bar-item"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>info@alphacontracting.ca</a>
+      </div>
+      <div class="top-bar-right">
+        <a href="#" class="top-bar-item"><svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>Toronto, ON</a>
+        <div class="social-icons"><a href="#">f</a><a href="#">in</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-emblem"><img src="uploads/logo1.webp" alt="Alpha Logo" /></div>
+        <div><div class="logo-text-main">ALPHA<br>CONTRACTING</div><div class="logo-text-sub">&amp; Property Services Inc.</div></div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="about.html" class="active">ABOUT US</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html" class="nav-cta">GET A QUOTE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a> <span>›</span> <span>About Us</span></div>
+      <h1 class="page-title">About Us</h1>
+      <p class="page-subtitle">Learn about our story, our team, and our commitment to quality craftsmanship in Toronto.</p>
+    </div>
+  </div>
+
+  <!-- WHO WE ARE -->
+  <div class="about-intro">
+    <div class="about-img">
+      <img src="uploads/A65C5DFA-043A-4E77-A0E2-D302C3258DE2.webp" alt="Alpha Contracting Team" />
+      <div class="about-img-badge">
+        <div class="big">10+</div>
+        <div class="small">Years of Experience</div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Who We Are</div>
+      <h2 class="section-title">THE GTA'S TRUSTED CONTRACTING PARTNER</h2>
+      <p class="about-text">Alpha Contracting & Property Services Inc. was founded with one goal: to deliver exceptional construction and renovation work that stands the test of time. Based in Toronto, ON, we bring professionalism, skill, and genuine care to every project we take on.</p>
+      <p class="about-text">From small bathroom updates to full-scale renovations and basement developments, our team treats every job — big or small — with the same level of dedication and attention to detail.</p>
+      <ul class="about-features">
+        <li>Licensed & Insured</li>
+        <li>Free Consultations</li>
+        <li>On-time Delivery</li>
+        <li>Quality Guaranteed</li>
+        <li>Transparent Pricing</li>
+        <li>Local Toronto Team</li>
+      </ul>
+      <a href="contact.html" class="btn-primary">GET IN TOUCH <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="values-section">
+    <div class="values-inner">
+      <div class="values-header">
+        <div class="eyebrow">What Drives Us</div>
+        <h2 class="section-title">OUR CORE VALUES</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="value-title">Quality First</div>
+          <p class="value-desc">We never cut corners. Every project receives the same high standard of workmanship.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="value-title">Client Focus</div>
+          <p class="value-desc">Your vision is our priority. We listen, plan carefully, and deliver beyond expectations.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          <div class="value-title">Integrity</div>
+          <p class="value-desc">Honest communication and transparent pricing on every single project.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="value-title">On Time</div>
+          <p class="value-desc">We respect your schedule and complete every project within the agreed timeline.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><div class="stat-number">10+</div><div class="stat-label">Years of Experience</div></div>
+      <div class="stat-item"><div class="stat-number">500+</div><div class="stat-label">Projects Completed</div></div>
+      <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Satisfaction Guaranteed</div></div>
+      <div class="stat-item"><div class="stat-number">5★</div><div class="stat-label">Average Rating</div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>READY TO WORK WITH US?</h2>
+    <p>Contact us today for a free consultation and no-obligation quote.</p>
+    <a href="contact.html" class="btn-white">CONTACT US TODAY <svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-top-inner">
+        <div class="footer-top-contact">
+          <a href="tel:6472270221" class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            (647) 227-0221
+          </a>
+          <a href="mailto:info@alphacontracting.ca" class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            info@alphacontracting.ca
+          </a>
+          <span class="footer-top-item">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            5000 Yonge St. Suite# 1901, Toronto, ON M2N 7E9
+          </span>
+        </div>
+        <a href="contact.html" class="footer-top-cta">Get A Free Quote</a>
+      </div>
+    </div>
+    <div class="footer-body">
+      <div>
+        <a href="index.html" class="footer-brand-logo">
+          <div class="footer-brand-emblem">
+            <img src="uploads/logo1.webp" alt="Alpha Contracting Logo" />
+          </div>
+          <div>
+            <div class="footer-brand-name">ALPHA<br>CONTRACTING</div>
+            <div class="footer-brand-sub">&amp; Property Services Inc.</div>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Alpha Contracting &amp; Property Services Inc. delivers expert construction, renovation, and property management services across Toronto, Ontario and the Greater Toronto Area.</p>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" title="LinkedIn">in</a>
+        </div>
+        <div class="footer-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Licensed &amp; Insured — Toronto, ON
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Our Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html">Renovations</a></li>
+          <li><a href="services.html">Bathrooms</a></li>
+          <li><a href="services.html">Basement Developments</a></li>
+          <li><a href="services.html">Property Services</a></li>
+          <li><a href="services.html">Mold Remediation</a></li>
+        </ul>
+      </div>
+      <!-- Business Hours -->
+      <div>
+        <div class="footer-col-title">Business Hours</div>
+        <div class="footer-hours">
+          <div class="footer-hours-item"><span class="footer-hours-day">Mon – Fri</span><span>8:00am – 6:00pm</span></div>
+          <div class="footer-hours-item"><span class="footer-hours-day">Saturday</span><span>9:00am – 3:00pm</span></div>
+          <div class="footer-hours-item"><span class="footer-hours-day">Sunday</span><span>Closed</span></div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-info">
+          <a href="tel:6472270221">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+            (647) 227-0221
+          </a>
+          <a href="mailto:info@alphacontracting.ca">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+            info@alphacontracting.ca
+          </a>
+          <div class="footer-contact-addr">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+            <span>5000 Yonge St. Suite# 1901, Toronto, ON M2N 7E9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2025 Alpha Contracting &amp; Property Services Inc. All Rights Reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; z-index: 200; flex-shrink: 0; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media (max-width: 900px) {
+      .top-bar-right { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links { display: none; position: fixed; top: 72px; left: 0; right: 0; background: #fff; flex-direction: column; padding: 8px 24px 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); z-index: 150; border-top: 1px solid #e5e7eb; gap: 0; max-height: calc(100vh - 72px); overflow-y: auto; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 0; border-bottom: 1px solid #f3f4f6; font-size: 14px; width: 100%; }
+      .nav-links a.active::after { display: none; }
+      .nav-cta { margin-top: 10px; text-align: center; justify-content: center; border-bottom: none !important; padding: 13px !important; }
+      .footer-top-contact { gap: 16px !important; } .footer-body { grid-template-columns: 1fr 1fr !important; gap: 32px !important; padding: 48px 24px 40px !important; }
+      .footer-bottom { flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+      .footer-bottom-links { justify-content: center !important; }
+      .about-intro { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 24px !important; }
+      .about-img { height: 280px !important; }
+      .values-grid { grid-template-columns: 1fr 1fr !important; }
+      .team-grid { grid-template-columns: 1fr 1fr !important; }
+      .stats-inner { grid-template-columns: 1fr 1fr !important; }
+      .stat-item { border-right: none !important; border-bottom: 1px solid #374151 !important; }
+      .page-title { font-size: 30px !important; }
+    }
+    @media (max-width: 560px) {
+      .footer-top-contact { display: none !important; } .footer-body { grid-template-columns: 1fr !important; gap: 28px !important; }
+      .values-grid { grid-template-columns: 1fr !important; }
+      .team-grid { grid-template-columns: 1fr !important; }
+      .about-features { grid-template-columns: 1fr !important; }
+      .page-title { font-size: 26px !important; }
+    }
+  </style>
+  <script>
+    (function() {
+      var btn = document.getElementById('navToggle');
+      var menu = document.querySelector('.nav-links');
+      if (btn && menu) {
+        btn.addEventListener('click', function() { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+        document.addEventListener('click', function(e) {
+          if (!btn.contains(e.target) && !menu.contains(e.target)) { btn.classList.remove('open'); menu.classList.remove('open'); }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

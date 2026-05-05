@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Vercel
+.vercel/
+
+# Deploy scripts (contain private tokens)
+deploy.sh
+PUSH TO GITHUB.bat
