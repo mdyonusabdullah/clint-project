@@ -344,17 +344,10 @@
     </div>
   </footer>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    // ── EmailJS Config ──────────────────────────────────────────────
-    // Replace these three values after completing the EmailJS setup steps below
-    const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // Account → API Keys
-    const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // Email Services tab
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // Email Templates tab
-    // ───────────────────────────────────────────────────────────────
-
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    // ── Paste your Web3Forms Access Key here ────────────────────────
+    const ACCESS_KEY = '7aefc8c8-5db2-42f0-8a2b-3298178334ab';
+    // ────────────────────────────────────────────────────────────────
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -364,17 +357,22 @@
       btn.textContent = 'SENDING…';
       btn.disabled = true;
 
-      const params = {
-        from_firstname: form.querySelector('[name="firstName"]').value,
-        from_lastname:  form.querySelector('[name="lastName"]').value,
-        from_phone:     form.querySelector('[name="phone"]').value,
-        from_email:     form.querySelector('[name="email"]').value,
-        service:        form.querySelector('[name="service"]').value,
-        message:        form.querySelector('[name="message"]').value,
-      };
-
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params)
-        .then(() => {
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject:    'New Contact Form — Alpha Contracting',
+          name:       form.querySelector('[name="firstName"]').value + ' ' + form.querySelector('[name="lastName"]').value,
+          email:      form.querySelector('[name="email"]').value,
+          phone:      form.querySelector('[name="phone"]').value,
+          service:    form.querySelector('[name="service"]').value || 'General Inquiry',
+          message:    form.querySelector('[name="message"]').value,
+        })
+      })
+      .then(r => r.json())
+      .then(res => {
+        if (res.success) {
           btn.textContent = '✓ MESSAGE SENT!';
           btn.style.background = '#16a34a';
           form.reset();
@@ -383,17 +381,18 @@
             btn.style.background = '';
             btn.disabled = false;
           }, 4000);
-        })
-        .catch((err) => {
-          console.error('EmailJS error:', err);
-          btn.textContent = '✗ FAILED — TRY AGAIN';
-          btn.style.background = '#dc2626';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.innerHTML = 'SEND MESSAGE <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
-            btn.style.background = '';
-          }, 4000);
-        });
+        } else { throw new Error(res.message); }
+      })
+      .catch(err => {
+        console.error('Error:', err);
+        btn.textContent = '✗ FAILED — TRY AGAIN';
+        btn.style.background = '#dc2626';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'SEND MESSAGE <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>';
+          btn.style.background = '';
+        }, 4000);
+      });
     }
   </script>
 
